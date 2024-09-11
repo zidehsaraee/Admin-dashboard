@@ -22,12 +22,25 @@ ChartJS.register(
 
 const ChartComponent = () => {
   const data = {
-    labels: ["January", "February", "March", "April", "May", "June"],
+    labels: [
+      "January",
+      "February",
+      "March",
+      "April",
+      "May",
+      "June",
+      "Jul",
+      "Aug",
+      "Sep",
+      "Nov",
+      "Oct",
+      "Des",
+    ],
     datasets: [
       {
         label: "Sales",
-        data: [350, 200, 400, 400, 380, 600],
-        backgroundColor: "rgba(75, 192, 192, 0.6)",
+        data: [150, 200, 120, 195, 180, 89, 110, 190, 90, 145, 110, 100],
+        backgroundColor: "rgba(75, 180, 192, 0.6)",
       },
     ],
   };
@@ -46,12 +59,12 @@ const ChartComponent = () => {
   };
 
   return (
-    <Card>
-      <CardContent>
+    <Card sx={{ height: '100%' }}>
+      <CardContent sx={{ height: '100%' }}>
         <Typography variant="h6" component="div">
           Sales Data
         </Typography>
-        <Bar data={data} options={options} />
+        <Bar data={data} options={options} style={{ height: '100%' }}/>
       </CardContent>
     </Card>
   );

@@ -264,11 +264,11 @@ export default function Home() {
           alignItems: "center",
         }}
       >
-        <Grid item xs={12} md={12} xl={8}>
+        <Grid item xs={12} md={12} xl={8} sx={{ height: '500px' }}>
           <ChartComponent />
         </Grid>
 
-        <Grid item xs={12} md={12} xl={4}>
+        <Grid item xs={12} md={12} xl={4} sx={{ height: '500px' }}>
           <TrafficSrs />
         </Grid>
       </Grid>

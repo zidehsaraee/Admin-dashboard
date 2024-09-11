@@ -23,7 +23,7 @@ const rows = [
 
 export default function TrafficSrs() {
   return (
-    <TableContainer component={Paper} sx={{ height: "490px" }}>
+    <TableContainer component={Paper} sx={{ height: "100%" }}>
       <Typography variant="h6" component="div" sx={{ margin: "20px" }}>
         Traffic source
       </Typography>
