@@ -4,7 +4,7 @@ const OnlineShopDB = require("./../db/OnlineShop");
 const ordersRouter = express.Router();
 
 ordersRouter.get("/", (req, res) => {
-  let selectAllOrdersQuery = `SELECT orders.id, products.title as productID, users.firstname as UserID, orders.date, orders.hour, orders.price, orders.off, orders.sale, orders.popularity, orders.count, orders.sale_count, orders.isActive FROM orders INNER JOIN products ON products.id = orders.productID INNER JOIN users ON users.id = orders.UserID`;
+  let selectAllOrdersQuery = `SELECT orders.id, products.title as productID, users.firstname as userID, orders.date, orders.hour, orders.price, orders.sale, orders.popularity, orders.count, orders.sale_count, orders.isActive FROM orders INNER JOIN products ON products.id = orders.productID INNER JOIN users ON users.id = orders.UserID`;
   OnlineShopDB.query(selectAllOrdersQuery, (err, result) => {
     if (err) {
       res.send(null);

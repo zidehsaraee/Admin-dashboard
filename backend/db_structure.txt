@@ -8,16 +8,8 @@
     sale
     colors
 
-2.Comments
-    id
-    body
-    date
-    hour
-    userID (forign key =>(Users))
-    productID (forign key =>(Products))
-    isAccept
 
-3.Users
+2.Users
     id
     firstname
     lastname
@@ -29,6 +21,18 @@
     address
     score
     buy
+
+
+3.Comments
+    id
+    body
+    date
+    hour
+    userID (forign key =>(Users))
+    productID (forign key =>(Products))
+    isAccept
+
+
 
 4.Orders
     id
