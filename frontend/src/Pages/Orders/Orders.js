@@ -115,7 +115,7 @@ export default function Orders() {
                   sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
                 >
                   <TableCell>{order.productID}</TableCell>
-                  <TableCell>{order.UserID}</TableCell>
+                  <TableCell>{order.userID}</TableCell>
                   <TableCell>{order.date}</TableCell>
                   <TableCell>{order.hour}</TableCell>
                   <TableCell>{order.price}</TableCell>
