@@ -4,7 +4,7 @@ const OnlineShopDB = mysql.createConnection({
   host: "localhost",
   user: "root",
   password: "",
-  database: "online_shop",
+  database: "admin_panel",
 });
 
 module.exports = OnlineShopDB;
