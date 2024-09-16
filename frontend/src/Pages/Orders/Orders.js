@@ -30,13 +30,14 @@ export default function Orders() {
     getAllOrders();
   }, []);
   const getAllOrders = () => {
-    fetch("http://localhost:5000/api/orders")
+    // fetch("http://localhost:5000/api/orders")
+    fetch(`${process.env.REACT_APP_BACKEND_URL}/api/orders`)
       .then((res) => res.json())
       .then((result) => setAllOrders(result));
   };
 
   const deleteOrderAction = () => {
-    fetch(`http://localhost:5000/api/orders/${orderID}`, {
+    fetch(`${process.env.REACT_APP_BACKEND_URL}/api/orders/${orderID}`, {
       method: "DELETE",
     })
       .then((res) => res.json())
@@ -47,7 +48,7 @@ export default function Orders() {
   };
 
   const acceptOrderAction = () => {
-    fetch(`http://localhost:5000/api/orders/active-order/${orderID}`, {
+    fetch(`${process.env.REACT_APP_BACKEND_URL}/api/orders/active-order/${orderID}`, {
       method: "PUT",
     })
       .then((res) => res.json())
@@ -58,7 +59,7 @@ export default function Orders() {
   };
 
   const rejectOrderAction = () => {
-    fetch(`http://localhost:5000/api/orders/reject-order/${orderID}`, {
+    fetch(`${process.env.REACT_APP_BACKEND_URL}/api/orders/reject-order/${orderID}`, {
       method: "PUT",
     })
       .then((res) => res.json())

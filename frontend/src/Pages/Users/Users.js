@@ -40,13 +40,13 @@ export default function Users() {
   }, []);
 
   const getAllUsers = () => {
-    fetch("http://localhost:5000/api/users")
+    fetch(`${process.env.REACT_APP_BACKEND_URL}/api/users`)
       .then((res) => res.json())
       .then((result) => setAllUsers(result));
   };
 
   const submitDeleteUser = () => {
-    fetch(`http://localhost:5000/api/users/${userID}`, {
+    fetch(`${process.env.REACT_APP_BACKEND_URL}/api/users/${userID}`, {
       method: "DELETE",
     })
       .then((res) => res.json())
@@ -69,7 +69,7 @@ export default function Users() {
       score: userScore,
       buy: userBuy,
     };
-    fetch(`http://localhost:5000/api/users/${userID}`, {
+    fetch(`${process.env.REACT_APP_BACKEND_URL}/api/users/${userID}`, {
       method: "PUT",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(editedUserInfo),

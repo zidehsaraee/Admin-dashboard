@@ -10,7 +10,7 @@ export default function Products() {
   }, []);
 
   const getAllproducts = () => {
-    fetch("http://localhost:5000/api/products/")
+    fetch(`${process.env.REACT_APP_BACKEND_URL}/api/products/`)
       .then((res) => res.json())
       .then((products) => setAllproducts(products));
   };
