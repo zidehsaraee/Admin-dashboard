@@ -78,7 +78,7 @@ export default function ProductsTable({ allproducts, getAllproducts }) {
     formData.append("sale", editSaleProduct);
     formData.append("colors", editColorsProduct);
 
-    fetch(`http://localhost:5000/api/products/${productID}`, {
+    fetch(`${process.env.REACT_APP_BACKEND_URL}/api/products/${productID}`, {
       method: "PUT",
       body: formData,
     })
@@ -102,7 +102,7 @@ export default function ProductsTable({ allproducts, getAllproducts }) {
     setShowDeleteModal(true);
   };
   const deleteSubmitAction = () => {
-    fetch(`http://localhost:5000/api/products/${productID}`, {
+    fetch(`${process.env.REACT_APP_BACKEND_URL}/api/products/${productID}`, {
       method: "DELETE",
     })
       .then((res) => res.json())

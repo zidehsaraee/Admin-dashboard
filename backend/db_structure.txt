@@ -41,7 +41,6 @@
     date
     hour
     price
-    off
     sale
     popularity
     count

@@ -29,6 +29,12 @@ const PORT = process.env.PORT || 5000;
 const upload = multer({ storage: storage });
 
 app.use(cors());
+
+app.use(cors({
+  origin: 'https://guileless-bienenstitch-e1cc73.netlify.app/', // Change to your actual Netlify URL
+  credentials: true
+}));
+
 app.use(bodyParser.json());
 // 
 app.use("/api/products", productsRouter);

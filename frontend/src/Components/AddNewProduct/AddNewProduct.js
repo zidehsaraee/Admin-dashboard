@@ -41,7 +41,7 @@ export default function AddNewProduct({ getAllproducts }) {
     formData.append("sale", newProductsale);
     formData.append("colors", newProductColor);
 
-    fetch("http://localhost:5000/api/products/", {
+    fetch(`${process.env.REACT_APP_BACKEND_URL}/api/products/`, {
       method: "post",
       body: formData,
     })
