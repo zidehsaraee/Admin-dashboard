@@ -12,26 +12,27 @@ require("dotenv").config();
 
 const mysql = require("mysql2");
 
-const OnlineShopDB = mysql.createConnection({
+const mysql = require("mysql2");
+
+const OnlineShopDB = mysql.createPool({
   host: process.env.DB_HOST,
   user: process.env.DB_USER,
   password: process.env.DB_PASS,
   database: process.env.DB_NAME,
   port: process.env.DB_PORT,
+  waitForConnections: true,
+  connectionLimit: 10,
+  queueLimit: 0,
 });
 
-OnlineShopDB.connect((err) => {
+// Error logging for connection issues
+OnlineShopDB.getConnection((err, connection) => {
   if (err) {
-    console.error("Error connecting to MySQL:", err);
+    console.error("Error connecting to MySQL:", err.code); // Detailed error logging
     return;
   }
-  console.log("Connected to MySQL!");
-});
-
-// Example query
-OnlineShopDB.query("SELECT * FROM users", (err, results) => {
-  if (err) throw err;
-  console.log("Users:", results);
+  if (connection) connection.release(); // Release connection back to the pool
+  console.log("Connected to MySQL pool!");
 });
 
 module.exports = OnlineShopDB;

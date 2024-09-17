@@ -35,6 +35,13 @@ app.use(cors({
   credentials: true
 }));
 
+//Global Error Handling
+app.use((err, req, res, next) => {
+  console.error(err.stack);  // Log the stack trace
+  res.status(500).send({ error: "Something went wrong!" });
+});
+
+
 app.use(bodyParser.json());
 // 
 app.use("/api/products", productsRouter);

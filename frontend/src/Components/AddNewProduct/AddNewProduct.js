@@ -45,10 +45,14 @@ export default function AddNewProduct({ getAllproducts }) {
       method: "post",
       body: formData,
     })
-      .then((res) => res.json())
+      .then((res) => {
+        res.json();
+        console.log("Data doesn't fetch successfully!!!!!!");
+      })
       .then((result) => {
         getAllproducts();
         getEmptyInputs();
+        console.log("Data fetched successfully!!!!!!");
       });
   };
 
