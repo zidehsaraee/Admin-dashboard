@@ -28,22 +28,22 @@ const PORT = process.env.PORT || 5000;
 
 const upload = multer({ storage: storage });
 
-app.use(cors());
+app.use(cors(corsOptions));
 
-app.use(cors({
-  origin: 'https://guileless-bienenstitch-e1cc73.netlify.app/', // Change to your actual Netlify URL
-  credentials: true
-}));
+const corsOptions = {
+  origin: "https://guileless-bienenstitch-e1cc73.netlify.app", // Exact match for your frontend's origin
+  methods: ["GET", "POST", "PUT", "DELETE"], // Allowed methods
+  credentials: true, // Include credentials if needed
+};
 
 //Global Error Handling
 app.use((err, req, res, next) => {
-  console.error(err.stack);  // Log the stack trace
+  console.error(err.stack); // Log the stack trace
   res.status(500).send({ error: "Something went wrong!" });
 });
 
-
 app.use(bodyParser.json());
-// 
+//
 app.use("/api/products", productsRouter);
 app.use("/api/comments", commentsRouter);
 app.use("/api/users", usersRouter);
